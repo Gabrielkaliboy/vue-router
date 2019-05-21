@@ -16,10 +16,31 @@ export default new Router({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+    },
+    {
+      name: 'user',
+      path: '/user',
+      component: function (resolve) {
+        require(['./views/User.vue'], resolve)
+      }
+    },
+    {
+      // 动态路由 $route.params
+      name: 'userName',
+      // 一个“路径参数”使用冒号 : 标记。当匹配到一个路由时，参数值会被设置到 this.$route.params，可以在每个组件内使用
+      path: '/user/:username',
+      component: function (resolve) {
+        require(['./views/UserName.vue'], resolve)
+      }
+    },
+    {
+      name: 'userNameAndPostID',
+      // 你可以在一个路由中设置多段“路径参数”，对应的值都会设置到 $route.params 中
+      path: '/user/:username/post/:post_id',
+      component: function (resolve) {
+        require(['./views/UserNameAndPostID.vue'], resolve)
+      }
     }
   ]
 })
