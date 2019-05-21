@@ -6,7 +6,8 @@
       <!-- router-link会被渲染为一个a标签 -->
       <router-link to="/">跳转到Home</router-link> |
       <router-link to="/about">跳转到About</router-link>|
-      <router-link to="/user">跳转到User，使用动态路由</router-link>
+      <router-link to="/user">跳转到User，使用动态路由</router-link>|
+      <router-link to="/shop/123">跳转到Shop，使用动态路由</router-link>
     </div>
     <!-- 路由出口 -->
     <!-- 路由匹配到的组件将会渲染到这里 -->

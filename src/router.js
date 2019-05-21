@@ -14,6 +14,25 @@ export default new Router({
       component: Home
     },
     {
+      path: '/shop/:id',
+      name: 'shop',
+      component: () => import('./views/Shop.vue'),
+      children: [
+        {
+          path: 'tel',
+          name: 'tel',
+          component: () => import('./views/Shop_tel.vue')
+        },
+        {
+          path: 'address',
+          name: 'address',
+          component: function (resolve) {
+            require(['./views/Shop_address.vue'], resolve)
+          }
+        }
+      ]
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
