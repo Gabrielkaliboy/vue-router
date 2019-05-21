@@ -11,13 +11,11 @@ export default {
     return {}
   },
   methods: {
-    third: function () {
-      this.$router.push({
-        path: '/user',
-        query: {
-          shopid: 123
-        }
-      })
+  },
+  watch: {
+    '$route' (to, from) {
+      console.log('User.vue中的to和from')
+      console.log(to, from)
     }
   }
 }

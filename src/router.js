@@ -5,7 +5,7 @@ import Home from './views/Home.vue'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history', 默认值: "hash" (浏览器环境),这个会在地址栏添加一个#,history不会
   base: process.env.BASE_URL,
   routes: [
     {
@@ -40,6 +40,13 @@ export default new Router({
       path: '/user/:username/post/:post_id',
       component: function (resolve) {
         require(['./views/UserNameAndPostID.vue'], resolve)
+      }
+    },
+    {
+      // 匹配所有路由路径
+      path: '*',
+      component: function (resolve) {
+        require(['./views/404.vue'], resolve)
       }
     }
   ]
