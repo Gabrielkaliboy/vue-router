@@ -1,4 +1,5 @@
 <template>
+<!-- 项目的根页面 -->
   <div id="app">
     <div id="nav">
       <!-- 使用router-link组件来导航 -->

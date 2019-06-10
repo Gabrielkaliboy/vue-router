@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <p>home</p>
+    <hr>
+    <p>这里是router-view 渲染的home</p>
     <button @click="btn1">点击我会跳转到About</button>
     <button @click="btn2">点击我会跳转到About</button>
   </div>
@@ -33,3 +34,8 @@ export default {
   }
 }
 </script>
+<style>
+.home{
+  /* border:1px solid #f00; */
+}
+</style>
