@@ -3,7 +3,8 @@
     <hr>
     <p>这里是router-view 渲染的home</p>
     <button @click="btn1">点击我会跳转到About</button>
-    <button @click="btn2">点击我会跳转到About</button>
+    <button @click="btn3" title="我是重定向路由">redirect</button>
+    
   </div>
 </template>
 
@@ -25,10 +26,9 @@ export default {
       // 可以是字符串
       this.$router.push('about')
     },
-    btn2: function () {
-      // 可以是对象
+    btn3: function () {
       this.$router.push({
-        path: 'home'
+        path: 'redirect'
       })
     }
   }
@@ -37,5 +37,8 @@ export default {
 <style>
 .home{
   /* border:1px solid #f00; */
+}
+button{
+  margin-right: 10px;
 }
 </style>
