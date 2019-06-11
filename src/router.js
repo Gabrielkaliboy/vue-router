@@ -15,7 +15,6 @@ export default new Router({
     },
     {
       path: '/home',
-      name: 'home',
       component: Home
     },
     {
@@ -51,6 +50,13 @@ export default new Router({
       }
     },
     {
+      name: 'userId',
+      path: '/user/:id',
+      component: () => {
+        import('./views/UserId.vue')
+      }
+    },
+    {
       // 动态路由 $route.params
       name: 'userName',
       // 一个“路径参数”使用冒号 : 标记。当匹配到一个路由时，参数值会被设置到 this.$route.params，可以在每个组件内使用
@@ -75,22 +81,23 @@ export default new Router({
       }
     },
     {
-      //重定向testRedirect到了home
+      //重定向testRedirect到了home   地址栏就是home的地址
       name: 'testRedirect',
       path: '/testRedirect',
       // redirect: { name: 'home' }
       // redirect:"/"
-      redirect: function(){
+      redirect: function() {
         return '/'
       }
-    },{
-      //别名
-      name:'alias',
-      path:'/alias',
-      component:function(resolve){
-        require(['./views/alias.vue'],resolve)
+    },
+    {
+      //别名   地址栏为各自的alias 或者aliasTwo
+      name: 'alias',
+      path: '/alias',
+      component: function(resolve) {
+        require(['./views/alias.vue'], resolve)
       },
-      alias:"/aliasTwo"
+      alias: '/aliasTwo'
     },
     {
       // 匹配所有路由路径
