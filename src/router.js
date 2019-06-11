@@ -75,9 +75,22 @@ export default new Router({
       }
     },
     {
+      //重定向testRedirect到了home
       name: 'testRedirect',
       path: '/testRedirect',
-      redirect: { name: 'home' }
+      // redirect: { name: 'home' }
+      // redirect:"/"
+      redirect: function(){
+        return '/'
+      }
+    },{
+      //别名
+      name:'alias',
+      path:'/alias',
+      component:function(resolve){
+        require(['./views/alias.vue'],resolve)
+      },
+      alias:"/aliasTwo"
     },
     {
       // 匹配所有路由路径
